@@ -1,0 +1,252 @@
+{% extends "layout.html" %} 
+{% block title %} PCOSTest {% endblock %}
+{% block content %}
+
+
+    <style>
+
+        
+        body {
+            background-color: azure;
+            
+        }
+  
+        input[type=text]{
+        
+            padding: 8px 20px;
+            margin: 0px 0;
+            width: 100%;
+            outline: none;
+            background: transparent;
+            border:none;
+            border-bottom: 1px solid #fff;
+        }
+
+        a.nav-link{
+            color:white;
+            font-weight: 600;;
+            font-size: 15px;
+            text-transform: uppercase;
+            margin-left: 20px;
+        }
+
+        ::placeholder{
+			
+			font-size:18px;
+
+		}
+        form{
+            width: 100%;
+            display: inline-block;
+
+        }
+        .form-control{
+            border-radius:0%!important;
+        }
+        .btn {
+            background-color:cadetblue;
+            padding: 10px 25px;
+            font-size: 20px;;
+        }
+        .btn:hover{
+            background-color:rgb(51, 187, 192);
+            
+        }
+       
+        h2{
+            font-weight: 600;
+            color:cadetblue;
+            margin-bottom: 20px;;
+        }
+
+        input[type=text]{
+        
+        padding: 8px 0px;
+        margin: 10px 0;
+        width: 100%;
+        outline: none;
+        background: transparent;
+        border:none;
+        border-bottom: 1px solid #a3b9c5;
+    }
+
+    footer{
+            text-align: center;
+            background-color: #26878C;
+            height: 50px;
+        }
+
+        footer{
+            text-align: center;
+            margin-top: 10rem;
+        }
+
+        footer .footer-content .row-1{
+            color: #c5c7c9;
+        }
+        
+        footer a{
+            color: #d2f7c6;
+        }
+
+        footer .footer-content .row-2{
+            margin-top: 50px;
+            margin-bottom: 60px;
+
+        }
+
+      
+
+    </style>
+
+    <div class="container">
+        <div class="row">
+            <h2 class="text-center mt-5">Polycystic ovary syndrome (PCOS) Test</h2>
+
+
+            <div class="col-md-12 form-row">
+
+                <form class="row g-3" action="{{url_for('predict')}}" method='POST'>
+
+
+                    <div class="col-md-4">
+
+                        <input type="text" name="age" placeholder="Age (yrs)"  required="required"\>
+                        <input type="text" name="weight" placeholder="Weight (Kg)"  required="required"\>
+                        <input type="text" name="height" placeholder="Height(Cm)"  required="required"\>
+                        <input type="text" name="bmi" placeholder="BMI"  required="required"\>
+    
+                        <input type="text" name="bloodgroup" list="bloodgroup" placeholder="Blood Group" required="required"\>
+                        <datalist id="bloodgroup">
+                            <option value="11">A+</option>
+                            <option value="12">A-</option>
+                            <option value="13">B+</option>
+                            <option value="14">B-</option>
+                            <option value="15">O+</option>
+                            <option value="16">O-</option>
+                            <option value="17">AB+</option>
+                            <option value="18">AB-</option>
+                        </datalist>
+    
+                        <input type="text" name="pulserate" placeholder="Pulse rate(bpm)" required="required"\>
+                        <input type="text" name="respiratoryrate" placeholder="Respiratory rate(breaths/min)" required="required"\>
+                        <input type="text" name="Himoglobin" placeholder="Hb(g/dl)" required="required"\>
+                        <input type="text" name="cycle" placeholder="Cycle(R/I)" required="required"\>
+                        <input type="text" name="cyclelength" placeholder="Cycle length(days)" required="required"\>
+                        <input type="text" name="marraigestatus" placeholder="Marraige Status (Yrs)" required="required"\>
+
+                        <input type="text" name="pregnant" list="pregnant" placeholder="Pregnant(Y/N)" required="required"\>
+                        <datalist id="pregnant">
+                            <option value="1">Yes </option>
+                            <option value="0">No</option>
+                        </datalist>
+
+                        <input type="text" name="noofaborptions" placeholder="No. of aborptions" required="required"\>
+
+                        <input type="text" name="Ibeta-HCG" placeholder="I beta-HCG(mIU/mL)" required="required"\>
+                        <input type="text" name="IIbeta-HCG" placeholder="II beta-HCG(mIU/mL)" required="required"\>
+
+                        <input type="text" name="fsh" placeholder="Follicle Stimulating Hormone(mIU/mL)" required="required"\>
+                        <input type="text" name="lh" placeholder="Luteinizing Hormone (mIU/mL)" required="required"\>
+    
+                        <input type="text" name="fsh/lh" placeholder="FSH/LH" required="required"\>
+                        <input type="text" name="hip" placeholder="Hip(inch)" required="required"\>
+                        <input type="text" name="waist" placeholder="Waist(inch)" required="required"\>
+                        <input type="text" name="waist/hip" placeholder="Waist:Hip Ratio" required="required"\>
+
+                    </div>
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+
+                        <input type="text" name="tsh" placeholder="Thyroid Stimulating Hormone (mIU/L)" required="required"\>
+                        <input type="text" name="amh" placeholder="Anti-Mullerian Hormone (ng/mL)" required="required"\>
+                        <input type="text" name="plr" placeholder="Prolactin (ng/mL)" required="required"\>
+    
+                        <input type="text" name="vitd3" placeholder="Vit D3 (ng/mL)" required="required"\>
+                        <input type="text" name="progesterone" placeholder="Progesterone (ng/mL)" required="required"\>
+                        <input type="text" name="rbs" placeholder="Random Blood Sugar (mg/dl)" required="required"\>
+                        
+    
+                        <input type="text" name="weightgain" list="weightgain" placeholder="Weight Gain" required="required"\>
+                        <datalist id="weightgain">
+                            <option value="1">Yes </option>
+                            <option value="0">No</option>
+                        </datalist>
+    
+                        <input type="text" name="hairgrowth" list="hairgrowth" placeholder="Hair growth(Y/N)" required="required"\>
+                        <datalist id="hairgrowth">
+                            <option value="1">Yes </option>
+                            <option value="0">No</option>
+                        </datalist>
+    
+                        <input type="text" name="Skindarkening" list="Skindarkening" placeholder="Skin darkening (Y/N)" required="required"\>
+                        <datalist id="Skindarkening">
+                            <option value="1">Yes </option>
+                            <option value="0">No</option>
+                        </datalist>
+                        
+                        <input type="text" name="hairloss" list="hairloss" placeholder="Hair loss(Y/N)" required="required"\>
+                        <datalist id="hairloss">
+                            <option value="1">Yes </option>
+                            <option value="0">No</option>
+                        </datalist>
+
+                        <input type="text" name="pimples" list="pimples" placeholder="Pimples(Y/N)" required="required"\>
+                        <datalist id="pimples">
+                            <option value="1">Yes </option>
+                            <option value="0">No</option>
+                        </datalist>
+    
+                        <input type="text" name="fastfood" list="fastfood" placeholder="Fast food (Y/N)" required="required"\>
+                        <datalist id="fastfood">
+                            <option value="1">Yes </option>
+                            <option value="0">No</option>
+                        </datalist>
+
+                        <input type="text" name="RegularExercise" list="RegularExercise" placeholder="Regular Exercise (Y/N)" required="required"\>
+                        <datalist id="RegularExercise">
+                            <option value="1">Yes </option>
+                            <option value="0">No</option>
+                        </datalist>
+    
+                        <input type="text" name="BPSystolic" placeholder="BP_Systolic (mmHg)" required="required"\>
+
+                        <input type="text" name="BPDiastolic" placeholder="BP_Diastolic (mmHg)" required="required"\>
+
+                        <input type="text" name="fnoLeft" placeholder="Follicle No. Left" required="required"\>
+                        <input type="text" name="fnoRight" placeholder="Follicle No. Right" required="required"\>
+                        <input type="text" name="fsLeft" placeholder="Avg. Follicle size Left (mm)" required="required"\>
+                        <input type="text" name="fsRight" placeholder="Avg. Follicle size Right (mm)" required="required"\>
+                        <input type="text" name="endometrium" placeholder="Endometrium (mm)" required="required"\>
+
+                        <button type="submit" class="btn mt-4"><strong>Predict PCOS</strong></button>
+
+                    </div>
+                 
+
+
+                    <br>
+                    
+                    
+                    
+                </form>
+
+            </div>
+            
+                    
+        </div> 
+    </div>
+
+{% endblock %}
+
+<footer>
+    <div class="footer-content">
+
+        <div class="row-1">
+            <span>Copyright &copy; 2022 All rights reserved |
+             This template is made with <i class="fas fa-heart"></i> by <a href="#">Swarnali Mollick</a></span>
+
+        </div>
+    </div>
+
+</footer>
